@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A&E Building Maintenance — Luxury Building Maintenance & Care</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Mgamea/A-E/main/assets/favicon.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Mgamea/A-E/main/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────── */
+:root {
+  --black:      #0E0E0E;
+  --black-2:    #161616;
+  --black-3:    #1E1E1E;
+  --gold-hi:    #F5E07A;
+  --gold-mid:   #C9A84C;
+  --gold-deep:  #8B6410;
+  --gold-dim:   rgba(201,168,76,0.18);
+  --gold-line:  rgba(201,168,76,0.35);
+  --white:      #F4F0E8;
+  --muted:      rgba(244,240,232,0.45);
+  --font-disp:  'Cormorant Garamond', Georgia, serif;
+  --font-body:  'DM Sans', system-ui, sans-serif;
+  --font-util:  'Montserrat', sans-serif;
+  --gold-grad:  linear-gradient(135deg, #F5E07A 0%, #C9A84C 35%, #8B6410 60%, #C9A84C 80%, #F5E07A 100%);
+  --gold-grad-v:linear-gradient(180deg, #F5E07A 0%, #C9A84C 40%, #8B6410 100%);
+}
+
+/* ─── RESET ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── GOLD TEXT UTILITY ───────────────────────────── */
+.gold {
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gold-solid { color: var(--gold-mid); }
+
+/* ─── HAIRLINE ────────────────────────────────────── */
+.hairline {
+  border: none;
+  border-top: 1px solid var(--gold-line);
+  margin: 0;
+}
+
+/* ─── NAVBAR ─────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 80px;
+  background: rgba(14,14,14,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--gold-line);
+}
+.nav-logo img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-util);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--gold-mid); }
+.nav-cta {
+  font-family: var(--font-util);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 1px solid var(--gold-mid);
+  color: var(--gold-mid);
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: var(--gold-mid);
+  color: var(--black);
+}
+.nav-hamburger { display: none; cursor: pointer; }
+.nav-hamburger span {
+  display: block; width: 24px; height: 1px;
+  background: var(--gold-mid); margin: 6px 0;
+  transition: all 0.3s;
+}
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* Signature vertical gold line */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 140px;
+  bottom: 80px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, var(--gold-mid) 20%, var(--gold-mid) 80%, transparent 100%);
+  opacity: 0.5;
+}
+.hero-inner {
+  max-width: 820px;
+  padding-left: 36px;
+}
+.hero-eyebrow {
+  font-family: var(--font-util);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-family: var(--font-disp);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+}
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 56px;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-util);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  background: var(--gold-grad);
+  color: var(--black);
+  transition: opacity 0.3s;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost {
+  font-family: var(--font-util);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border: 1px solid var(--gold-line);
+  color: var(--gold-mid);
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: var(--gold-mid); background: var(--gold-dim); }
+.hero-stats {
+  display: flex;
+  gap: 64px;
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--gold-line);
+}
+.stat-num {
+  font-family: var(--font-disp);
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1;
+  background: var(--gold-grad-v);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-family: var(--font-util);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ─── SECTION BASE ───────────────────────────────── */
+section { padding: 120px 48px; }
+.section-eyebrow {
+  font-family: var(--font-util);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 20px;
+}
+.section-title {
+  font-family: var(--font-disp);
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.section-lead {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 72px;
+}
+
+/* ─── SERVICES ───────────────────────────────────── */
+.services { background: var(--black-2); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.service-item {
+  padding: 40px 48px;
+  border-bottom: 1px solid var(--gold-line);
+  border-right: 1px solid var(--gold-line);
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-item:nth-child(even) { border-right: none; }
+.service-item:nth-last-child(-n+2) { border-bottom: none; }
+.service-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-dim);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.service-item:hover::before { opacity: 1; }
+.service-num {
+  font-family: var(--font-disp);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--gold-deep);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.service-name {
+  font-family: var(--font-disp);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.service-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.service-arrow {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  position: relative;
+}
+.service-arrow::after {
+  content: ' →';
+}
+
+/* ─── WHY ────────────────────────────────────────── */
+.why { background: var(--black); }
+.why-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+.why-pillars { display: flex; flex-direction: column; gap: 0; }
+.pillar {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--gold-line);
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.pillar:first-child { border-top: 1px solid var(--gold-line); }
+.pillar-icon {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--gold-line);
+  display: flex; align-items: center; justify-content: center;
+}
+.pillar-icon svg { width: 18px; height: 18px; stroke: var(--gold-mid); fill: none; stroke-width: 1.5; }
+.pillar-title {
+  font-family: var(--font-disp);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.pillar-text { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.why-quote {
+  position: sticky;
+  top: 120px;
+}
+.why-quote blockquote {
+  font-family: var(--font-disp);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+.why-quote blockquote::before {
+  content: '\201C';
+  display: block;
+  font-size: 80px;
+  line-height: 0.8;
+  margin-bottom: 16px;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.why-sig {
+  font-family: var(--font-util);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+}
+
+/* ─── PROCESS ────────────────────────────────────── */
+.process { background: var(--black-3); }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--gold-line);
+}
+.process-step {
+  padding: 48px 36px;
+  border-right: 1px solid var(--gold-line);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+.process-step-num {
+  font-family: var(--font-disp);
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  background: var(--gold-grad-v);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+.process-step-title {
+  font-family: var(--font-disp);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.process-step-text { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* ─── REVIEWS ────────────────────────────────────── */
+.reviews { background: var(--black-2); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+.review-card {
+  background: var(--black-3);
+  padding: 48px;
+  position: relative;
+}
+.review-stars {
+  display: flex; gap: 4px; margin-bottom: 24px;
+}
+.review-stars span {
+  font-size: 14px;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.review-text {
+  font-family: var(--font-disp);
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+.review-author {
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+}
+.reviews-badge {
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 48px;
+  border-top: 1px solid var(--gold-line);
+}
+.badge-label {
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.badge-val {
+  font-family: var(--font-disp);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--gold-mid);
+}
+
+/* ─── CONTACT ────────────────────────────────────── */
+.contact { background: var(--black); }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 40px; }
+.contact-item-label {
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 8px;
+}
+.contact-item-val {
+  font-family: var(--font-disp);
+  font-size: 20px;
+  font-weight: 300;
+}
+.contact-phone {
+  font-family: var(--font-disp);
+  font-size: 42px;
+  font-weight: 300;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.contact-phone-sub {
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Form */
+.form-group { margin-bottom: 24px; }
+.form-group label {
+  display: block;
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 10px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--black-3);
+  border: 1px solid var(--gold-line);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.25s;
+  appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold-mid); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select { cursor: pointer; color: var(--muted); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit { width: 100%; margin-top: 8px; cursor: pointer; }
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--black-2);
+  border-top: 1px solid var(--gold-line);
+  padding: 64px 48px 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+.footer-logo img { height: 52px; margin-bottom: 20px; }
+.footer-tagline {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 260px;
+}
+.footer-col-title {
+  font-family: var(--font-util);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+  margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-mid); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--gold-line);
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--font-util);
+  letter-spacing: 0.05em;
+}
+.footer-bbb {
+  font-family: var(--font-util);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-mid);
+}
+
+/* ─── SCROLL REVEAL ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  section { padding: 80px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero::after { left: 24px; top: 100px; }
+  .hero-inner { padding-left: 24px; }
+  .hero-stats { gap: 32px; flex-wrap: wrap; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-item { border-right: none !important; }
+  .service-item:last-child { border-bottom: none; }
+  .why-layout { grid-template-columns: 1fr; gap: 48px; }
+  .why-quote { position: static; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-step:nth-child(2) { border-right: none; }
+  .process-step:nth-child(3) { border-top: 1px solid var(--gold-line); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 540px) {
+  .hero h1 { font-size: 42px; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step { border-right: none !important; border-top: 1px solid var(--gold-line); }
+  .process-step:first-child { border-top: none; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img id="nav-logo-img" src="https://raw.githubusercontent.com/Mgamea/A-E/main/assets/Logo_A__E.png" alt="A&E Building Maintenance" onerror="tryNextLogo(this,'nav')" style="height:58px;width:auto;object-fit:contain;">
+    <span id="nav-logo-txt" style="display:none; font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.1em; background:linear-gradient(135deg,#F5E07A,#C9A84C,#8B6410); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">A&amp;E BUILDING</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why A&E</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Free quote</a>
+  <div class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p class="hero-eyebrow reveal">Winnipeg · Over 20 years of excellence</p>
+    <h1 class="reveal">
+      We clean what<br>
+      the competition<br>
+      <em class="gold">leaves behind.</em>
+    </h1>
+    <p class="hero-sub reveal">
+      Nettoyage commercial, entretien d'immeubles, peinture et déneigement — 
+      une équipe licenciée, assurée et rigoureuse pour l'ensemble de votre propriété.
+    </p>
+    <div class="hero-actions reveal">
+      <a class="btn-primary" href="#contact">Free quote</a>
+      <a class="btn-ghost" href="tel:+12043395090">(204) 339-5090</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div>
+        <div class="stat-num">20<span style="font-size:0.5em">+</span></div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div>
+        <div class="stat-num">30<span style="font-size:0.5em">+</span></div>
+        <div class="stat-label">Reviews cinq étoiles</div>
+      </div>
+      <div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Service lines</div>
+      </div>
+      <div>
+        <div class="stat-num">24<span style="font-size:0.4em; font-style:italic">/7</span></div>
+        <div class="stat-label">Support line</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ═══════════════════════════════════════════════ SERVICES -->
+<section class="services" id="services">
+  <p class="section-eyebrow reveal">What we do</p>
+  <h2 class="section-title reveal">One team.<br>Your whole building.</h2>
+  <p class="section-lead reveal">A single-source solution for commercial, retail, industrial and apartment properties.</p>
+
+  <div class="services-grid">
+    <div class="service-item reveal">
+      <div class="service-num">i</div>
+      <h3 class="service-name">Bureaux, immeubles & commerces</h3>
+      <p class="service-desc">Storefronts, individual suites or entire buildings — experienced crews working on a schedule built around your hours, not ours.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">ii</div>
+      <h3 class="service-name">Industriel & entrepôts</h3>
+      <p class="service-desc">Heavy-duty cleaning for warehouses and industrial facilities, backed by long-standing industrial clients.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">iii</div>
+      <h3 class="service-name">Specialty cleans & en profondeur</h3>
+      <p class="service-desc">Handle your own day-to-day? Bring us in for the occasional heavy work, deep cleans and full spring resets.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">iv</div>
+      <h3 class="service-name">Disinfection & assainissement</h3>
+      <p class="service-desc">Hospital-grade disinfectants and fogging applied to the high-touch areas where germs spread first.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">v</div>
+      <h3 class="service-name">Peinture & réparation commerciale</h3>
+      <p class="service-desc">Fast, cost-effective, professional finishes for commercial facilities — current processes, outstanding results.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">vi</div>
+      <h3 class="service-name">Commercial snow removal</h3>
+      <p class="service-desc">For our crews there is no such thing as too much snow. Lots, walks and entrances — clear before you open.</p>
+      <span class="service-arrow gold-solid">Explore service</span>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ═══════════════════════════════════════════════ WHY -->
+<section class="why" id="why">
+  <div class="why-layout">
+    <div>
+      <p class="section-eyebrow reveal">Why A&E</p>
+      <h2 class="section-title reveal">Your building.<br>Our obsession.</h2>
+      <div class="why-pillars reveal">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title">Équipes dédiées & formées</div>
+            <p class="pillar-text">Vetted professionals using field-tested, client-approved supplies on your schedule.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title">Same-day resolution</div>
+            <p class="pillar-text">If you have a concern, we fix it the same day. Your satisfaction is that important to us.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title">Licencié, assuré & accrédité BBB A+</div>
+            <p class="pillar-text">BBB accredited member since 2012 with an A+ rating. Full coverage for your complete peace of mind.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <div class="pillar-title">Tailored, not generic</div>
+            <p class="pillar-text">Our strength is tailoring service to the specific — often unique — needs of each property.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-quote reveal">
+      <blockquote>
+        No one needs to know we're your secret weapon.
+      </blockquote>
+      <p class="why-sig">— A&E Building Maintenance</p>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ═══════════════════════════════════════════════ PROCESS -->
+<section class="process" id="process">
+  <p class="section-eyebrow reveal">How it works</p>
+  <h2 class="section-title reveal">From first call<br>to flawless.</h2>
+  <p class="section-lead reveal">No impersonal service. No broken guarantees. A process refined over two decades of Winnipeg properties.</p>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="process-step-num">01</div>
+      <h3 class="process-step-title">Walkthrough</h3>
+      <p class="process-step-text">We visit your property, listen to what matters, and map the often-unique needs of your building.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">02</div>
+      <h3 class="process-step-title">Tailored plan</h3>
+      <p class="process-step-text">A free, no-obligation quote with a scope built around your operations — not a generic checklist.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">03</div>
+      <h3 class="process-step-title">Dedicated crew</h3>
+      <p class="process-step-text">Trained, vetted professionals using field-tested, client-approved supplies on your schedule.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">04</div>
+      <h3 class="process-step-title">Same-day fixes</h3>
+      <p class="process-step-text">Have a concern? We fix it the same day. We also flag repairs we notice before they become problems.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ═══════════════════════════════════════════════ REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow reveal">Client voices</p>
+  <h2 class="section-title reveal">Rated Excellent.</h2>
+
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">"Great attention to detail and we are always satisfied with the work. A very reliable, professional company with awesome service."</p>
+      <p class="review-author">Kaley M. · Business client · Google</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">"A&E have been with us for many years. Whenever we had a flood or a reno, they were there. I rest assured our building is well maintained with them in charge."</p>
+      <p class="review-author">Randy E. · Property manager · Google</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">"Best service in Winnipeg — incredibly neat work at my warehouse, friendly staff, and their manager is arguably the best of the best. 100% recommended."</p>
+      <p class="review-author">Anas A. · Warehouse client · Google</p>
+    </div>
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">"Always good quality work. If I need anything extra, they are always willing to do it."</p>
+      <p class="review-author">Mike D. · Recurring client · Google</p>
+    </div>
+  </div>
+
+  <div class="reviews-badge reveal">
+    <div>
+      <div class="badge-label">Overall rating</div>
+      <div class="badge-val">EXCELLENT</div>
+    </div>
+    <div>
+      <div class="badge-label">Reviews Google</div>
+      <div class="badge-val">30+</div>
+    </div>
+    <div>
+      <div class="badge-label">BBB accreditation</div>
+      <div class="badge-val">A+</div>
+    </div>
+    <div>
+      <div class="badge-label">In business since</div>
+      <div class="badge-val">2002</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline">
+
+<!-- ═══════════════════════════════════════════════ CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-layout">
+    <div>
+      <p class="section-eyebrow reveal">Get started</p>
+      <h2 class="section-title reveal">Request your<br>free quote.</h2>
+      <div class="contact-info reveal">
+        <div>
+          <div class="contact-item-label">Phone — 24/7</div>
+          <a class="contact-phone" href="tel:+12043395090">(204) 339-5090</a>
+          <div class="contact-phone-sub">24-hour phone support</div>
+        </div>
+        <div>
+          <div class="contact-item-label">Address</div>
+          <div class="contact-item-val">1043 Dugald Rd<br>Winnipeg, MB R2J 0G8</div>
+        </div>
+        <div>
+          <div class="contact-item-label">Office hours</div>
+          <div class="contact-item-val">Mon–Fri · 9am–3pm</div>
+        </div>
+        <div>
+          <div class="contact-item-label">Status</div>
+          <div class="contact-item-val" style="font-size:15px; color:var(--muted);">Pleinement licencié & assuré à Winnipeg<br>
+          <span class="gold-solid" style="font-size:13px;">BBB Accredited · A+ · since 2012</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Optional">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="(204) 000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service needed</label>
+        <select id="service">
+          <option value="">Select a service…</option>
+          <option>Bureaux, immeubles & commerces</option>
+          <option>Industriel & entrepôts</option>
+          <option>Specialty / deep clean</option>
+          <option>Disinfection & assainissement</option>
+          <option>Peinture & réparation commerciale</option>
+          <option>Commercial snow removal</option>
+          <option>Multiple / not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="address">Address de la propriété</label>
+        <input type="text" id="address" placeholder="Address complète">
+      </div>
+      <div class="form-group">
+        <label for="message">Tell us about the property</label>
+        <textarea id="message" placeholder="Square footage, building type, special requirements…"></textarea>
+      </div>
+      <button class="btn-primary form-submit" id="form-btn" onclick="handleSubmit()">Send quote request</button>
+      <div id="form-success" style="display:none; margin-top:20px; padding:18px 24px; border:1px solid var(--gold-line); font-family:var(--font-util); font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-mid);">&#10003; &nbsp;Request sent &mdash; we'll get back to you within 24 hours</div>
+      <div id="form-error" style="display:none; margin-top:20px; padding:18px 24px; border:1px solid rgba(226,75,74,0.4); font-family:var(--font-util); font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:#E24B4A;">&#10005; &nbsp;Sending failed &mdash; please call us at (204) 339-5090</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <img id="footer-logo-img" src="https://raw.githubusercontent.com/Mgamea/A-E/main/assets/Logo_A__E.png" alt="A&E Building Maintenance" onerror="tryNextLogo(this,'footer')" style="height:52px;width:auto;">
+      </div>
+      <p class="footer-tagline">Luxury building maintenance for commercial, retail, industrial and apartment properties across Winnipeg.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Bureaux & commerces</a></li>
+        <li><a href="#">Industriel & entrepôts</a></li>
+        <li><a href="#">Specialty cleans</a></li>
+        <li><a href="#">Disinfection</a></li>
+        <li><a href="#">Peinture & réparation</a></li>
+        <li><a href="#">Snow removal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="https://aeservices.ca/about-us/">About us</a></li>
+        <li><a href="https://aeservices.ca/beforeafter/">Before &amp; after gallery</a></li>
+        <li><a href="https://aeservices.ca/job-application/">Careers</a></li>
+        <li><a href="https://www.facebook.com/AEBuildingMaintenance">Facebook</a></li>
+        <li><a href="https://aeservices.ca/privacy-policy/">Privacy policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+12043395090" class="gold-solid">(204) 339-5090</a></li>
+        <li><a href="#">1043 Dugald Rd</a></li>
+        <li><a href="#">Winnipeg, MB R2J 0G8</a></li>
+        <li style="margin-top:8px;"><a href="https://www.bbb.org/ca/mb/winnipeg/profile/janitor-service/a-e-building-maintenance-ltd-0057-25040" class="gold-solid">BBB A+ depuis 2012 ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 A & E Building Maintenance Ltd. Tous droits réservés.</p>
+    <span class="footer-bbb">We clean what the competition leaves behind.</span>
+  </div>
+</footer>
+
+<script>
+/* Scroll reveal */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 120);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => observer.observe(el));
+
+/* Hero reveals */
+document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+  setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+});
+
+/* Mobile hamburger */
+const hamburger = document.querySelector('.nav-hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  const open = navLinks.style.display === 'flex';
+  navLinks.style.display = open ? 'none' : 'flex';
+  navLinks.style.flexDirection = 'column';
+  navLinks.style.position = 'absolute';
+  navLinks.style.top = '80px';
+  navLinks.style.left = '0';
+  navLinks.style.right = '0';
+  navLinks.style.background = 'rgba(14,14,14,0.97)';
+  navLinks.style.padding = '24px 32px';
+  navLinks.style.borderBottom = '1px solid rgba(201,168,76,0.3)';
+  navLinks.style.gap = '20px';
+});
+
+/* Formspree handler */
+async function handleSubmit() {
+  const btn = document.getElementById('form-btn');
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value;
+  const address = document.getElementById('address').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !email || !phone) {
+    alert('Please fill in at least your name, email and phone.');
+    return;
+  }
+
+  btn.textContent = 'Sending…';
+  btn.style.opacity = '0.6';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/mnjyybar', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, service, address, message })
+    });
+    if (res.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-error').style.display = 'none';
+      btn.style.display = 'none';
+      ['name','company','email','phone','address','message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
+      document.getElementById('service').selectedIndex = 0;
+    } else {
+      throw new Error('Formspree error');
+    }
+  } catch(err) {
+    document.getElementById('form-error').style.display = 'block';
+    btn.textContent = 'Send quote request';
+    btn.style.opacity = '1';
+    btn.disabled = false;
+  }
+}
+
+/* Logo fallback — try multiple filenames */
+const LOGO_NAMES = ['Logo_A__E.png','logo.png','Logo_AE.png','logo-ae.png'];
+let logoIdx = { nav: 0, footer: 0 };
+function tryNextLogo(img, key) {
+  logoIdx[key]++;
+  if (logoIdx[key] < LOGO_NAMES.length) {
+    img.src = 'https://raw.githubusercontent.com/Mgamea/A-E/main/assets/' + LOGO_NAMES[logoIdx[key]];
+  } else {
+    img.style.display = 'none';
+    if (key === 'nav') document.getElementById('nav-logo-txt').style.display = 'block';
+  }
+}
+
+</script>
+</body>
+</html>
